@@ -37,16 +37,16 @@ export default function Home() {
           <div className="absolute -left-10 top-8 h-40 w-40 rounded-full bg-white/30 blur-3xl" />
           <div className="absolute right-0 top-0 h-56 w-56 rounded-full bg-[#c2a8b5]/40 blur-3xl" />
         </div>
-        <div className="relative mx-auto flex max-w-6xl flex-col gap-4 px-6 py-6 sm:flex-row sm:items-center sm:justify-between">
+        <div className="relative mx-auto flex max-w-6xl flex-col gap-4 px-4 py-4 sm:px-6 sm:py-6 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <p className="text-xs uppercase tracking-[0.3em] text-slate-600">
               The Punctuation Mark
             </p>
-            <h1 className="text-2xl font-semibold tracking-tight text-slate-900">
+            <h1 className="text-xl sm:text-2xl font-semibold tracking-tight text-slate-900">
               喵标点喵屋 · Meow Punctuation Cattery
             </h1>
           </div>
-          <nav className="flex flex-wrap items-center gap-3 text-sm text-slate-700">
+          <nav className="flex flex-wrap items-center gap-2 sm:gap-3 text-xs sm:text-sm text-slate-700">
             {navItems.map((item) => (
               <Link
                 key={item.id}
@@ -59,29 +59,29 @@ export default function Home() {
             <LanguageToggle locale={locale} onChange={setLocale} />
           </nav>
         </div>
-        <div className="relative mx-auto grid max-w-6xl gap-10 px-6 pb-20 pt-6 lg:grid-cols-2">
-          <div className="flex flex-col gap-6">
+        <div className="relative mx-auto grid max-w-6xl gap-8 sm:gap-10 px-4 sm:px-6 pb-12 sm:pb-20 pt-4 sm:pt-6 lg:grid-cols-2">
+          <div className="flex flex-col gap-4 sm:gap-6">
             <div>
-              <p className="text-sm uppercase tracking-[0.5em] text-slate-500">
+              <p className="text-xs sm:text-sm uppercase tracking-[0.5em] text-slate-500">
                 {hero.title[copy]}
               </p>
-              <p className="mt-3 text-3xl font-semibold leading-tight">
+              <p className="mt-3 text-2xl sm:text-3xl font-semibold leading-tight">
                 {hero.subtitle[copy]}
               </p>
-              <p className="mt-4 text-base text-slate-600">
+              <p className="mt-4 text-sm sm:text-base text-slate-600">
                 {hero.description[copy]}
               </p>
             </div>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-3 sm:gap-4">
               <a
                 href="#contact"
-                className="rounded-full border border-sky-200 bg-sky-300/70 px-6 py-3 text-sm font-semibold text-slate-900 shadow-lg shadow-sky-200/80 backdrop-blur transition hover:-translate-y-0.5 hover:bg-sky-300"
+                className="rounded-full border border-sky-200 bg-sky-300/70 px-5 py-2.5 sm:px-6 sm:py-3 text-xs sm:text-sm font-semibold text-slate-900 shadow-lg shadow-sky-200/80 backdrop-blur transition hover:-translate-y-0.5 hover:bg-sky-300"
               >
                 {hero.ctas.primary[copy]}
               </a>
               <a
                 href="#about"
-                className="rounded-full border border-slate-500/40 px-6 py-3 text-sm font-medium text-slate-800 transition hover:bg-slate-900 hover:text-slate-50"
+                className="rounded-full border border-slate-500/40 px-5 py-2.5 sm:px-6 sm:py-3 text-xs sm:text-sm font-medium text-slate-800 transition hover:bg-slate-900 hover:text-slate-50"
               >
                 {hero.ctas.secondary[copy]}
               </a>
@@ -122,8 +122,8 @@ export default function Home() {
         </div>
       </header>
 
-      <main className="mx-auto flex max-w-6xl flex-col gap-20 px-6 py-16" id="about">
-        <section className="grid gap-4 rounded-3xl border border-slate-100 bg-white p-6 shadow-sm lg:grid-cols-3">
+      <main className="mx-auto flex max-w-6xl flex-col gap-12 sm:gap-16 lg:gap-20 px-4 sm:px-6 py-8 sm:py-12 lg:py-16" id="about">
+        <section className="grid gap-4 rounded-2xl sm:rounded-3xl border border-slate-100 bg-white p-4 sm:p-6 shadow-sm lg:grid-cols-3">
           {storyCallouts.map((callout) => (
             <div
               key={callout.title.en}
@@ -144,13 +144,13 @@ export default function Home() {
 
         <section
           id="contact-card"
-          className="grid gap-10 rounded-3xl bg-white/80 p-10 shadow-2xl shadow-slate-200/60 lg:grid-cols-[1.2fr_0.8fr]"
+          className="grid gap-6 sm:gap-10 rounded-2xl sm:rounded-3xl bg-white/80 p-6 sm:p-10 shadow-2xl shadow-slate-200/60 lg:grid-cols-[1.2fr_0.8fr]"
         >
           <div>
             <p className="text-sm uppercase tracking-[0.4em] text-slate-500">
               {brandStory.headline[copy]}
             </p>
-            <h2 className="mt-4 text-3xl font-semibold text-slate-900">
+            <h2 className="mt-4 text-2xl sm:text-3xl font-semibold text-slate-900">
               1 the punctuation mark
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-slate-600">
@@ -174,10 +174,10 @@ export default function Home() {
               <p className="font-medium text-slate-700">
                 WeChat · {contact.wechat}
               </p>
-              <p>
+              <p className="text-sm sm:text-base">
                 {locale === "zh"
                   ? "欢迎随时与我们联系。"
-                  : "Bilingual (ZH/EN) support with one-tap language switch."}
+                  : "Feel free to contact us anytime."}
               </p>
             </div>
           </div>
@@ -188,7 +188,7 @@ export default function Home() {
             <p className="text-xs uppercase tracking-[0.5em] text-slate-500">
               {locale === "zh" ? "我们的优势" : "Our Strengths"}
             </p>
-            <h2 className="text-3xl font-semibold text-slate-900">
+            <h2 className="text-2xl sm:text-3xl font-semibold text-slate-900">
               {locale === "zh"
                 ? "用科学、温柔与透明，育出最温柔的标点"
                 : "Science, kindness, and transparency for the gentlest punctuation"}
@@ -226,13 +226,13 @@ export default function Home() {
 
         <section
           id="breeds"
-          className="rounded-3xl bg-gradient-to-br from-white to-slate-100 p-10 shadow-inner"
+          className="rounded-2xl sm:rounded-3xl bg-gradient-to-br from-white to-slate-100 p-6 sm:p-10 shadow-inner"
         >
           <div className="flex flex-col gap-3">
             <p className="text-xs uppercase tracking-[0.5em] text-slate-500">
               {locale === "zh" ? "主要品种" : "Signature Breeds"}
             </p>
-            <h2 className="text-3xl font-semibold text-slate-900">
+            <h2 className="text-2xl sm:text-3xl font-semibold text-slate-900">
               Minuet & Munchkin
             </h2>
           </div>
@@ -264,7 +264,7 @@ export default function Home() {
             <p className="text-xs uppercase tracking-[0.5em] text-slate-500">
               {locale === "zh" ? "精选小猫" : "Featured Kittens"}
             </p>
-            <h2 className="text-3xl font-semibold text-slate-900">
+            <h2 className="text-2xl sm:text-3xl font-semibold text-slate-900">
               {locale === "zh"
                 ? "当前开放预约 / 领养名单"
                 : "Currently Accepting Reservations"}
@@ -315,12 +315,12 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="grid gap-8 rounded-3xl bg-gradient-to-br from-sky-100 via-sky-200 to-slate-100 p-10 text-slate-900 shadow-2xl shadow-slate-200/70 lg:grid-cols-2">
+        <section className="grid gap-6 sm:gap-8 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-sky-100 via-sky-200 to-slate-100 p-6 sm:p-10 text-slate-900 shadow-2xl shadow-slate-200/70 lg:grid-cols-2">
           <div className="space-y-4">
             <p className="text-xs uppercase tracking-[0.5em] text-slate-600">
               {locale === "zh" ? "VIP 安家礼包" : "VIP Welcome Kit"}
             </p>
-            <h2 className="text-3xl font-semibold">
+            <h2 className="text-2xl sm:text-3xl font-semibold">
               {locale === "zh"
                 ? "预约猫咪，尊享安家组合"
                 : "Reserve a kitten, receive a welcome bundle"}
@@ -371,7 +371,7 @@ export default function Home() {
             <p className="text-xs uppercase tracking-[0.5em] text-slate-500">
               {locale === "zh" ? "领养流程" : "Adoption Journey"}
             </p>
-            <h2 className="text-3xl font-semibold text-slate-900">
+            <h2 className="text-2xl sm:text-3xl font-semibold text-slate-900">
               {locale === "zh"
                 ? "透明、负责、被爱的每一步"
                 : "Transparent, responsible steps into love"}
@@ -399,13 +399,13 @@ export default function Home() {
 
         <section
           id="faq"
-          className="rounded-3xl border border-slate-100 bg-white/70 p-10 shadow-sm"
+          className="rounded-2xl sm:rounded-3xl border border-slate-100 bg-white/70 p-6 sm:p-10 shadow-sm"
         >
           <div className="flex flex-col gap-3">
             <p className="text-xs uppercase tracking-[0.5em] text-slate-500">
               FAQ
             </p>
-            <h2 className="text-3xl font-semibold text-slate-900">
+            <h2 className="text-2xl sm:text-3xl font-semibold text-slate-900">
               {locale === "zh" ? "常见问题" : "Frequently Asked Questions"}
             </h2>
           </div>
@@ -428,13 +428,13 @@ export default function Home() {
 
         <section
           id="testimonials"
-          className="rounded-3xl border border-slate-100 bg-white p-10 shadow-sm"
+          className="rounded-2xl sm:rounded-3xl border border-slate-100 bg-white p-6 sm:p-10 shadow-sm"
         >
           <div className="flex flex-col gap-3">
             <p className="text-xs uppercase tracking-[0.5em] text-slate-500">
               {locale === "zh" ? "口碑" : "Testimonials"}
             </p>
-            <h2 className="text-3xl font-semibold text-slate-900">
+            <h2 className="text-2xl sm:text-3xl font-semibold text-slate-900">
               {locale === "zh"
                 ? "喵标点喵屋家庭的真实分享"
                 : "Stories from Meow Punctuation Families"}
@@ -459,14 +459,14 @@ export default function Home() {
         </section>
 
         <section
-          className="rounded-3xl bg-gradient-to-br from-slate-50 via-slate-100 to-zinc-100 p-10 text-slate-900"
+          className="rounded-2xl sm:rounded-3xl bg-gradient-to-br from-slate-50 via-slate-100 to-zinc-100 p-6 sm:p-10 text-slate-900"
           id="contact"
         >
           <div className="flex flex-col gap-4">
             <p className="text-xs uppercase tracking-[0.5em] text-slate-500">
               {locale === "zh" ? "联系我们" : "Get in Touch"}
             </p>
-            <h2 className="text-3xl font-semibold text-slate-900">
+            <h2 className="text-2xl sm:text-3xl font-semibold text-slate-900">
               {locale === "zh"
                 ? "让生活里多一个温柔的标点"
                 : "Add a gentle punctuation to your life"}
