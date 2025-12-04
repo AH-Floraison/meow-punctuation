@@ -87,8 +87,8 @@ export default function Home() {
               </a>
             </div>
           </div>
-          <div className="relative flex justify-center lg:flex-shrink-0">
-            <div className="grid gap-6 rounded-3xl bg-white/70 p-6 shadow-lg shadow-slate-200/60 max-w-md w-full">
+          <div className="relative flex justify-center lg:flex-1 lg:max-w-md lg:mx-auto">
+            <div className="grid gap-6 rounded-3xl bg-white/70 p-6 shadow-lg shadow-slate-200/60 w-full">
               <div className="rounded-2xl border border-slate-100 bg-white p-6 text-slate-900 shadow-2xl shadow-slate-200/70">
                 <p className="text-sm uppercase tracking-[0.4em] text-slate-500">
                   🐾 {locale === "zh" ? "官方简介" : "Cattery Intro"}
