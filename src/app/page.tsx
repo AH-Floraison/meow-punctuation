@@ -101,7 +101,7 @@ export default function Home() {
           onClick={() => setIsMenuOpen(false)}
         >
           <div
-            className={`absolute inset-y-0 left-0 w-3/4 bg-gradient-to-br from-slate-800 to-slate-900 shadow-2xl transition-transform duration-300 ease-in-out ${
+            className={`absolute inset-y-0 left-0 w-3/4 bg-gradient-to-br from-sky-200/90 via-sky-300/85 to-sky-200/90 backdrop-blur-xl shadow-2xl transition-transform duration-300 ease-in-out ${
               isMenuOpen ? "translate-x-0" : "-translate-x-full"
             }`}
             onClick={(e) => e.stopPropagation()}
@@ -109,7 +109,7 @@ export default function Home() {
             <div className="flex flex-col h-full p-6 pt-12">
               <button
                 onClick={() => setIsMenuOpen(false)}
-                className="absolute top-6 right-6 text-white p-2 hover:bg-white/10 rounded-lg transition"
+                className="absolute top-6 right-6 text-slate-800 p-2 hover:bg-white/40 rounded-lg transition"
                 aria-label="Close menu"
               >
                 <svg
@@ -132,7 +132,7 @@ export default function Home() {
                     key={item.id}
                     href={`#${item.id}`}
                     onClick={() => setIsMenuOpen(false)}
-                    className="text-white text-lg font-medium py-4 px-4 border-b border-white/10 hover:bg-white/10 transition-all duration-200"
+                    className="text-slate-800 text-lg font-medium py-4 px-4 border-b border-slate-300/40 hover:bg-white/50 transition-all duration-200"
                     style={{
                       animation: isMenuOpen
                         ? `slideInLeft 0.3s ease-out ${index * 0.05 + 0.2}s both`
@@ -143,7 +143,7 @@ export default function Home() {
                   </Link>
                 ))}
                 <div
-                  className="mt-4 pt-4 border-t border-white/20"
+                  className="mt-4 pt-4 border-t border-slate-300/40"
                   style={{
                     animation: isMenuOpen
                       ? `slideInLeft 0.3s ease-out ${navItems.length * 0.05 + 0.2}s both`
@@ -153,16 +153,16 @@ export default function Home() {
                   <button
                     type="button"
                     onClick={() => setLocale(locale === "zh" ? "en" : "zh")}
-                    className="flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-5 py-2 text-sm font-medium text-white hover:bg-white/20 transition"
+                    className="flex items-center gap-2 rounded-full border border-slate-300/60 bg-white/60 backdrop-blur px-5 py-2 text-sm font-medium text-slate-800 hover:bg-white/80 transition shadow-sm"
                   >
                     <span role="img" aria-label="paw">
                       🐾
                     </span>
-                    <span className={locale === "zh" ? "text-white font-semibold" : "text-white/70"}>
+                    <span className={locale === "zh" ? "text-slate-900 font-semibold" : "text-slate-600"}>
                       中文
                     </span>
-                    <span className="text-white/50">/</span>
-                    <span className={locale === "en" ? "text-white font-semibold" : "text-white/70"}>
+                    <span className="text-slate-400">/</span>
+                    <span className={locale === "en" ? "text-slate-900 font-semibold" : "text-slate-600"}>
                       EN
                     </span>
                   </button>
