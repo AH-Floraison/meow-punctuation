@@ -28,6 +28,7 @@ const navItems = [
 
 export default function Home() {
   const [locale, setLocale] = useState<Locale>("zh");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const copy = locale;
 
   return (
@@ -38,15 +39,45 @@ export default function Home() {
           <div className="absolute right-0 top-0 h-56 w-56 rounded-full bg-[#c2a8b5]/40 blur-3xl" />
         </div>
         <div className="relative mx-auto flex max-w-6xl flex-col gap-4 px-4 py-4 sm:px-6 sm:py-6 sm:flex-row sm:items-center sm:justify-between">
-          <div>
-            <p className="text-xs uppercase tracking-[0.3em] text-slate-600">
-              The Punctuation Mark
-            </p>
-            <h1 className="text-xl sm:text-2xl font-semibold tracking-tight text-slate-900">
-              喵标点喵屋 · Meow Punctuation Cattery
-            </h1>
+          <div className="flex items-center gap-4">
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="lg:hidden p-2 text-slate-700 hover:bg-white/60 rounded-lg transition"
+              aria-label="Toggle menu"
+            >
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                {isMenuOpen ? (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                ) : (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                )}
+              </svg>
+            </button>
+            <div>
+              <p className="text-xs uppercase tracking-[0.3em] text-slate-600">
+                The Punctuation Mark
+              </p>
+              <h1 className="text-xl sm:text-2xl font-semibold tracking-tight text-slate-900">
+                喵标点喵屋 · Meow Punctuation Cattery
+              </h1>
+            </div>
           </div>
-          <nav className="flex flex-wrap items-center gap-2 sm:gap-3 text-xs sm:text-sm text-slate-700">
+          <nav className="hidden lg:flex flex-wrap items-center gap-2 sm:gap-3 text-xs sm:text-sm text-slate-700">
             {navItems.map((item) => (
               <Link
                 key={item.id}
@@ -59,8 +90,89 @@ export default function Home() {
             <LanguageToggle locale={locale} onChange={setLocale} />
           </nav>
         </div>
-        <div className="relative mx-auto flex max-w-6xl flex-col gap-8 sm:gap-10 px-4 sm:px-6 pb-12 sm:pb-20 pt-4 sm:pt-6 lg:flex-row lg:items-start">
-          <div className="flex flex-col gap-4 sm:gap-6 text-center lg:text-left lg:flex-1">
+        
+        {/* Mobile Menu Overlay */}
+        <div
+          className={`fixed inset-0 z-50 lg:hidden transition-all duration-300 ease-in-out ${
+            isMenuOpen
+              ? "opacity-100 pointer-events-auto"
+              : "opacity-0 pointer-events-none"
+          }`}
+          onClick={() => setIsMenuOpen(false)}
+        >
+          <div
+            className={`absolute inset-y-0 left-0 w-3/4 bg-gradient-to-br from-slate-800 to-slate-900 shadow-2xl transition-transform duration-300 ease-in-out ${
+              isMenuOpen ? "translate-x-0" : "-translate-x-full"
+            }`}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex flex-col h-full p-6 pt-12">
+              <button
+                onClick={() => setIsMenuOpen(false)}
+                className="absolute top-6 right-6 text-white p-2 hover:bg-white/10 rounded-lg transition"
+                aria-label="Close menu"
+              >
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+              <nav className="flex flex-col gap-1 mt-8">
+                {navItems.map((item, index) => (
+                  <Link
+                    key={item.id}
+                    href={`#${item.id}`}
+                    onClick={() => setIsMenuOpen(false)}
+                    className="text-white text-lg font-medium py-4 px-4 border-b border-white/10 hover:bg-white/10 transition-all duration-200"
+                    style={{
+                      animation: isMenuOpen
+                        ? `slideInLeft 0.3s ease-out ${index * 0.05 + 0.2}s both`
+                        : "none",
+                    }}
+                  >
+                    {item.label[copy]}
+                  </Link>
+                ))}
+                <div
+                  className="mt-4 pt-4 border-t border-white/20"
+                  style={{
+                    animation: isMenuOpen
+                      ? `slideInLeft 0.3s ease-out ${navItems.length * 0.05 + 0.2}s both`
+                      : "none",
+                  }}
+                >
+                  <button
+                    type="button"
+                    onClick={() => setLocale(locale === "zh" ? "en" : "zh")}
+                    className="flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-5 py-2 text-sm font-medium text-white hover:bg-white/20 transition"
+                  >
+                    <span role="img" aria-label="paw">
+                      🐾
+                    </span>
+                    <span className={locale === "zh" ? "text-white font-semibold" : "text-white/70"}>
+                      中文
+                    </span>
+                    <span className="text-white/50">/</span>
+                    <span className={locale === "en" ? "text-white font-semibold" : "text-white/70"}>
+                      EN
+                    </span>
+                  </button>
+                </div>
+              </nav>
+            </div>
+          </div>
+        </div>
+        <div className="relative mx-auto flex max-w-6xl flex-col gap-8 sm:gap-10 px-4 sm:px-6 pb-12 sm:pb-20 pt-4 sm:pt-6 lg:flex-row lg:items-start lg:justify-center">
+          <div className="flex flex-col gap-4 sm:gap-6 text-center lg:flex-1 lg:max-w-xl lg:mx-auto">
             <div>
               <p className="text-xs sm:text-sm uppercase tracking-[0.5em] text-slate-500">
                 {hero.title[copy]}
@@ -72,7 +184,7 @@ export default function Home() {
                 {hero.description[copy]}
               </p>
             </div>
-            <div className="flex flex-wrap gap-3 sm:gap-4 justify-center lg:justify-start">
+            <div className="flex flex-wrap gap-3 sm:gap-4 justify-center">
               <a
                 href="#contact"
                 className="rounded-full border border-sky-200 bg-sky-300/70 px-5 py-2.5 sm:px-6 sm:py-3 text-xs sm:text-sm font-semibold text-slate-900 shadow-lg shadow-sky-200/80 backdrop-blur transition hover:-translate-y-0.5 hover:bg-sky-300"

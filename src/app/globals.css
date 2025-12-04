@@ -40,3 +40,14 @@ a {
   background: rgba(183, 192, 214, 0.4);
   color: var(--foreground);
 }
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
