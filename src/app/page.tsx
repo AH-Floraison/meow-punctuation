@@ -59,8 +59,8 @@ export default function Home() {
             <LanguageToggle locale={locale} onChange={setLocale} />
           </nav>
         </div>
-        <div className="relative mx-auto grid max-w-6xl gap-8 sm:gap-10 px-4 sm:px-6 pb-12 sm:pb-20 pt-4 sm:pt-6 lg:grid-cols-2">
-          <div className="flex flex-col gap-4 sm:gap-6 text-center lg:text-left">
+        <div className="relative mx-auto flex max-w-6xl flex-col gap-8 sm:gap-10 px-4 sm:px-6 pb-12 sm:pb-20 pt-4 sm:pt-6 lg:flex-row lg:items-start">
+          <div className="flex flex-col gap-4 sm:gap-6 text-center lg:text-left lg:flex-1">
             <div>
               <p className="text-xs sm:text-sm uppercase tracking-[0.5em] text-slate-500">
                 {hero.title[copy]}
@@ -87,9 +87,8 @@ export default function Home() {
               </a>
             </div>
           </div>
-          <div className="relative">
-            <div className="absolute inset-y-0 left-6 hidden w-px bg-slate-200 lg:block" />
-            <div className="grid gap-6 rounded-3xl bg-white/70 p-6 shadow-lg shadow-slate-200/60">
+          <div className="relative flex justify-center lg:flex-shrink-0">
+            <div className="grid gap-6 rounded-3xl bg-white/70 p-6 shadow-lg shadow-slate-200/60 max-w-md w-full">
               <div className="rounded-2xl border border-slate-100 bg-white p-6 text-slate-900 shadow-2xl shadow-slate-200/70">
                 <p className="text-sm uppercase tracking-[0.4em] text-slate-500">
                   🐾 {locale === "zh" ? "官方简介" : "Cattery Intro"}
