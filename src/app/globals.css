@@ -10,8 +10,6 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
 
 * {
@@ -29,8 +27,7 @@ body {
     radial-gradient(circle at top right, #f1f4fa 0, transparent 55%),
     linear-gradient(180deg, #f9fafb 0%, #f2f4f8 40%, #ffffff 100%);
   color: var(--foreground);
-  font-family: var(--font-geist-sans), "PingFang SC", "Microsoft YaHei",
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
   font-feature-settings: "ss01" on, "cv05" on;
 }
 
