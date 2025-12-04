@@ -60,7 +60,7 @@ export default function Home() {
           </nav>
         </div>
         <div className="relative mx-auto grid max-w-6xl gap-8 sm:gap-10 px-4 sm:px-6 pb-12 sm:pb-20 pt-4 sm:pt-6 lg:grid-cols-2">
-          <div className="flex flex-col gap-4 sm:gap-6">
+          <div className="flex flex-col gap-4 sm:gap-6 text-center lg:text-left">
             <div>
               <p className="text-xs sm:text-sm uppercase tracking-[0.5em] text-slate-500">
                 {hero.title[copy]}
@@ -72,7 +72,7 @@ export default function Home() {
                 {hero.description[copy]}
               </p>
             </div>
-            <div className="flex flex-wrap gap-3 sm:gap-4">
+            <div className="flex flex-wrap gap-3 sm:gap-4 justify-center lg:justify-start">
               <a
                 href="#contact"
                 className="rounded-full border border-sky-200 bg-sky-300/70 px-5 py-2.5 sm:px-6 sm:py-3 text-xs sm:text-sm font-semibold text-slate-900 shadow-lg shadow-sky-200/80 backdrop-blur transition hover:-translate-y-0.5 hover:bg-sky-300"
