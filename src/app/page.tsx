@@ -101,15 +101,15 @@ export default function Home() {
           onClick={() => setIsMenuOpen(false)}
         >
           <div
-            className={`absolute inset-y-0 left-0 w-3/4 bg-gradient-to-br from-sky-200/90 via-sky-300/85 to-sky-200/90 backdrop-blur-xl shadow-2xl transition-transform duration-300 ease-in-out ${
+            className={`absolute inset-y-0 left-0 w-3/4 bg-white/95 backdrop-blur-xl shadow-2xl transition-transform duration-300 ease-in-out ${
               isMenuOpen ? "translate-x-0" : "-translate-x-full"
             }`}
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex flex-col h-full p-6 pt-12">
+            <div className="flex flex-col h-full p-6 pt-16">
               <button
                 onClick={() => setIsMenuOpen(false)}
-                className="absolute top-6 right-6 text-slate-800 p-2 hover:bg-white/40 rounded-lg transition"
+                className="absolute top-6 right-6 text-slate-600 p-2 hover:bg-slate-100 rounded-full transition"
                 aria-label="Close menu"
               >
                 <svg
@@ -126,13 +126,13 @@ export default function Home() {
                   />
                 </svg>
               </button>
-              <nav className="flex flex-col gap-1 mt-8">
+              <nav className="flex flex-col gap-0 mt-4">
                 {navItems.map((item, index) => (
                   <Link
                     key={item.id}
                     href={`#${item.id}`}
                     onClick={() => setIsMenuOpen(false)}
-                    className="text-slate-800 text-lg font-medium py-4 px-4 border-b border-slate-300/40 hover:bg-white/50 transition-all duration-200"
+                    className="text-slate-700 text-base font-medium py-3 px-6 hover:bg-slate-50 transition-all duration-200 rounded-lg"
                     style={{
                       animation: isMenuOpen
                         ? `slideInLeft 0.3s ease-out ${index * 0.05 + 0.2}s both`
@@ -143,7 +143,7 @@ export default function Home() {
                   </Link>
                 ))}
                 <div
-                  className="mt-4 pt-4 border-t border-slate-300/40"
+                  className="mt-6 pt-6 border-t border-slate-200 px-6"
                   style={{
                     animation: isMenuOpen
                       ? `slideInLeft 0.3s ease-out ${navItems.length * 0.05 + 0.2}s both`
@@ -153,16 +153,16 @@ export default function Home() {
                   <button
                     type="button"
                     onClick={() => setLocale(locale === "zh" ? "en" : "zh")}
-                    className="flex items-center gap-2 rounded-full border border-slate-300/60 bg-white/60 backdrop-blur px-5 py-2 text-sm font-medium text-slate-800 hover:bg-white/80 transition shadow-sm"
+                    className="flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100 transition w-full justify-center"
                   >
                     <span role="img" aria-label="paw">
                       🐾
                     </span>
-                    <span className={locale === "zh" ? "text-slate-900 font-semibold" : "text-slate-600"}>
+                    <span className={locale === "zh" ? "text-slate-900 font-semibold" : "text-slate-500"}>
                       中文
                     </span>
-                    <span className="text-slate-400">/</span>
-                    <span className={locale === "en" ? "text-slate-900 font-semibold" : "text-slate-600"}>
+                    <span className="text-slate-300">/</span>
+                    <span className={locale === "en" ? "text-slate-900 font-semibold" : "text-slate-500"}>
                       EN
                     </span>
                   </button>
@@ -171,8 +171,8 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="relative mx-auto flex max-w-6xl flex-col gap-8 sm:gap-10 px-4 sm:px-6 pb-12 sm:pb-20 pt-4 sm:pt-6 lg:flex-row lg:items-start lg:justify-center">
-          <div className="flex flex-col gap-4 sm:gap-6 text-center lg:flex-1 lg:max-w-xl lg:mx-auto">
+        <div className="relative mx-auto flex max-w-4xl flex-col gap-8 sm:gap-10 px-4 sm:px-6 pb-12 sm:pb-20 pt-4 sm:pt-6 items-center">
+          <div className="flex flex-col gap-4 sm:gap-6 text-center w-full max-w-2xl">
             <div>
               <p className="text-xs sm:text-sm uppercase tracking-[0.5em] text-slate-500">
                 {hero.title[copy]}
@@ -199,7 +199,7 @@ export default function Home() {
               </a>
             </div>
           </div>
-          <div className="relative flex justify-center lg:flex-1 lg:max-w-md lg:mx-auto">
+          <div className="relative flex justify-center w-full max-w-2xl">
             <div className="grid gap-6 rounded-3xl bg-white/70 p-6 shadow-lg shadow-slate-200/60 w-full">
               <div className="rounded-2xl border border-slate-100 bg-white p-6 text-slate-900 shadow-2xl shadow-slate-200/70">
                 <p className="text-sm uppercase tracking-[0.4em] text-slate-500">
